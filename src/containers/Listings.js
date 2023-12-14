@@ -1,5 +1,6 @@
 import { connect } from "react-redux";
 import Listings from "../components/Listings";
+import { setUser, setListings, deleteListing } from "../redux/actions";
 
 const mapStateToProps = (state) => {
     return {
@@ -8,4 +9,12 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps)(Listings)
+const mapDispatchToProps = (dispatch) => {
+    return {
+        setUser: username => dispatch(setUser(username)),
+        setListings: listings => dispatch(setListings(listings)),
+        deleteListing: index => dispatch(deleteListing(index))
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Listings)

@@ -1,8 +1,12 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Box, Button, Container, TextField } from '@mui/material';
 
 export default function Login(props) {
   const [username, setUserName] = useState();
+
+  useEffect(() => {
+    localStorage.setItem('username', JSON.stringify(username));
+  }, [username]);
 
   const handleSubmit = (e) => {
     e.preventDefault();

@@ -1,26 +1,35 @@
-// Here is where we are importing to the two main components we need from the React Router package.
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 
-// Local imports. Import components we built ourselves
-// import App from './App';
+import AddListing from './containers/AddListing';
 import Details from './containers/Details';
 import Listings from './containers/Listings';
 import Login from './containers/Login';
-// import Home from './components/Home';
 
-const Router = () => {
+const Router = (props) => {
+
+    const ProtectedRoute = ({
+        user,
+        redirectPath = '/listing',
+        children,
+      }) => {
+        if (!user) {
+          return <Navigate to={redirectPath} replace />;
+        }
+      
+        return children;
+      };
+
     return (
- //Then we use Routes and Route. Routes acts like a regular JS Switch* Statement 
- //depending on the path in the URL, one of these Routes will be returned and their component rendered 
         <Routes>
-            <Route path="/*" element={<Listings/>} />
-            <Route path="/listings" element={<Listings/>} />
-            <Route path="/login" element={<Login/>} />
-            <Route path="/details" element={<Details/>} />
+            <Route path="/*" element={<Listings />} />
+            <Route path="/listings" element={<Listings />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/details/:listIdx" element={<Details />} />
+            <Route path="/add" element={<AddListing />} />
+            {/* <Route path="home" element={ <ProtectedRoute user={user}> <Home /> </ProtectedRoute> } /> */}
             {/* <Route path="/user/:id" element={<Profile/>} /> */}
         </Routes>
     );
 }
 
-//Don't forget to export your newly create Router component
 export default Router;

@@ -1,7 +1,4 @@
 export default {
-  user: {
-    username: null,
-  },
   listings: [
     {
       name: 'Home Slice Pizza',

@@ -2,7 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import './index.css';
-// import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Router from './Router';
 import Dashboard from './containers/Dashboard';
@@ -13,12 +12,12 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 const Main = () => (
   <Provider store={store}>
-    <BrowserRouter>
-      <header>
-        <Dashboard />
-      </header>
-      <Router />
-    </BrowserRouter>
+      <BrowserRouter>
+        <header>
+          <Dashboard />
+        </header>
+        <Router />
+      </BrowserRouter>
   </Provider>
 );
 

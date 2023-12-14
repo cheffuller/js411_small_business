@@ -7,8 +7,8 @@ const user = (state = null, action) => {
         ...state,
         username: action.value,
       };
-      case 'LOGOUT_USER':
-        return state;
+    case 'LOGOUT_USER':
+      return state;
     default:
       return state;
   }
@@ -17,9 +17,15 @@ const user = (state = null, action) => {
 const listings = (state = null, action) => {
   switch (action.type) {
     case 'ADD_LISTING':
-      return state;
+      const newListings = state;
+      newListings.push(action.value);
+      return newListings;
     case 'DELETE_LISTING':
-      return state;
+      const listings = state;
+      listings.splice(action.value.idx, 1)
+      return listings;
+    case 'SET_LISTINGS':
+      return action.value;
     default:
       return state;
   }

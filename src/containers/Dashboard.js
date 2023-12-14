@@ -1,6 +1,6 @@
 import { connect } from "react-redux";
 import Dashboard from "../components/Dashboard";
-import { setUser } from "../redux/actions";
+import { setListings, setUser } from "../redux/actions";
 
 const mapStateToProps = (state) => {
     return {
@@ -10,7 +10,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        setUser: username => dispatch(setUser(username))
+        setUser: username => dispatch(setUser(username)),
+        setListings: listings => dispatch(setListings(listings))
     }
 }
 

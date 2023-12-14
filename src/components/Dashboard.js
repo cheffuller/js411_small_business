@@ -1,19 +1,43 @@
-// import * as React from 'react';
+import { useNavigate } from 'react-router';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
+import listings from '../redux/listings';
 
 export default function Dashboard(props) {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate('/add');
+  };
+
+  const handleLogout = () => {
+    props.setUser(null);
+    localStorage.clear();
+    props.setListings(listings.listings);
+  };
 
   const IsUser = () => {
-    console.log(props.user.username)
     if (props.user.username) {
       return (
-        <Button color='inherit' sx={{ textTransform: 'none' }} onClick={() => props.setUser(null)}>
-          Logout
-        </Button>
+        <div>
+          <Button
+            color='inherit'
+            sx={{ textTransform: 'none' }}
+            onClick={handleClick}
+          >
+            Add Listing
+          </Button>
+          <Button
+            color='inherit'
+            sx={{ textTransform: 'none' }}
+            onClick={handleLogout}
+          >
+            Logout
+          </Button>
+        </div>
       );
     } else {
       return (
@@ -36,7 +60,7 @@ export default function Dashboard(props) {
           >
             Listings
           </Button>
-          <IsUser user={props.user.username} />
+          <IsUser user={props.user} />
         </Toolbar>
       </AppBar>
     </Box>

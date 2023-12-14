@@ -5,10 +5,10 @@ export const setUser = (username) => {
   };
 };
 
-export const addListing = (index) => {
+export const addListing = (listing) => {
   return {
     type: 'ADD_LISTING',
-    value: index,
+    value: listing,
   };
 };
 
@@ -18,3 +18,10 @@ export const deleteListing = (index) => {
     value: index,
   };
 };
+
+export const setListings = (listings) => {
+  return {
+    type: 'SET_LISTINGS',
+    value: listings,
+  }
+}
