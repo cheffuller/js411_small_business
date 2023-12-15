@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
+import { useCookies } from 'react-cookie';
 import { Box, Button, Container, TextField } from '@mui/material';
 
 export default function Login(props) {
   const [username, setUserName] = useState();
+  const [cookies, setCookie] = useCookies();
 
   useEffect(() => {
     localStorage.setItem('username', JSON.stringify(username));
@@ -10,6 +12,7 @@ export default function Login(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setCookie(username, { path: '/' })
     props.setUser(username);
   };
 

@@ -62,7 +62,6 @@ export default function Listings(props) {
             </TableRow>
           </TableHead>
           <TableBody>
-            {console.log(props)}
             {props.listings.map((listing, idx) => (
               <TableRow
                 key={idx}

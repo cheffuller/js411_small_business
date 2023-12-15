@@ -8,7 +8,7 @@ export default {
       description:
         'Home Slice Pizza is an independent neighborhood pizza joint serving authentic NY-style pizza—by the slice or pie—to nice people like you. We offer our homemade, hand tossed, bona fide pies for either dine in or carry out.',
       hours: '11AM - 11PM',
-      address: 'South Congress Ave, Austin, TX 78704',
+      address: '1415 South Congress Ave, Austin, TX 78704',
     },
     {
       name: `Jo's Coffee`,

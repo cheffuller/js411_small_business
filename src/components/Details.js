@@ -16,15 +16,15 @@ export default function Details(props) {
 
   return (
     <Container sx={{ marginTop: 4 }}>
-      <Card sx={{ margin: 'auto', width: '50%' }}>
+      <Card sx={{ margin: 'auto', width: '50%', textAlign: 'center' }}>
         <CardContent>
-          <Typography variant='h4'>{props.listings[listIdx].name}</Typography>
-          <Typography variant='h6'>{props.listings[listIdx].hours}</Typography>
-          <Typography variant='h6'>
+          <Typography variant='h4' sx={{ margin: 1 }} >{props.listings[listIdx].name}</Typography>
+          <Typography variant='h6' sx={{ margin: 1 }}>{props.listings[listIdx].hours}</Typography>
+          <Typography variant='h6' sx={{ margin: 1 }}>
             {props.listings[listIdx].address}
           </Typography>
-          <Typography>{props.listings[listIdx].description}</Typography>
-          <GoogleMaps />
+          <Typography sx={{ margin: 2 }}>{props.listings[listIdx].description}</Typography>
+          <GoogleMaps address={props.listings[listIdx].address} />
         </CardContent>
       </Card>
     </Container>

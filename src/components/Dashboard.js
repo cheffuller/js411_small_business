@@ -48,6 +48,16 @@ export default function Dashboard(props) {
     }
   };
 
+  const UserBar = () => {
+    if (props.user.username) {
+      return (
+        <AppBar position='static' sx={{ height: '20px', backgroundColor: 'green', color: 'white', textAlign: 'center'}}>
+          <Typography>Hello {props.user.username}, you are logged in.</Typography>
+        </AppBar>
+      );
+    }
+  }
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position='static'>
@@ -60,9 +70,10 @@ export default function Dashboard(props) {
           >
             Listings
           </Button>
-          <IsUser user={props.user} />
+          <IsUser />
         </Toolbar>
       </AppBar>
+      <UserBar />
     </Box>
   );
 }

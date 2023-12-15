@@ -7,18 +7,21 @@ import Router from './Router';
 import Dashboard from './containers/Dashboard';
 import { Provider } from 'react-redux';
 import store from './redux/store';
+import { CookiesProvider } from 'react-cookie';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
 const Main = () => (
-  <Provider store={store}>
+  <CookiesProvider>
+    <Provider store={store}>
       <BrowserRouter>
         <header>
           <Dashboard />
         </header>
         <Router />
       </BrowserRouter>
-  </Provider>
+    </Provider>
+  </CookiesProvider>
 );
 
 root.render(<Main />);
