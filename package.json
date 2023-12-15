@@ -1,5 +1,6 @@
 {
   "name": "small_business",
+  "homepage": "https://cheffuller.github.io/js411_small_business",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -16,6 +17,7 @@
     "@testing-library/user-event": "^13.5.0",
     "cookie": "^0.6.0",
     "dotenv": "^16.3.1",
+    "gh-pages": "^6.1.0",
     "google-map-react": "^2.2.1",
     "node-polyfill-webpack-plugin": "^3.0.0",
     "react": "^18.2.0",
@@ -32,6 +34,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
